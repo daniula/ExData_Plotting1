@@ -14,7 +14,7 @@ read_data <- function(filename = 'household_power_consumption.txt') {
         stringsAsFactors = FALSE
     )
     colnames(data) <- unlist(header)
-    data$Date <- as.Date(data$Date, "%d/%m/%Y")
-    data$Time <- strptime(data$Time, "%H:%M:%S")
+    # data <- data[( data$Date=="1/2/2007" | data$Date=="2/2/2007" ),]
+    data$DateTime <- strptime(paste(data$Date, data$Time), "%d/%m/%Y %H:%M:%S")
     data
 }
